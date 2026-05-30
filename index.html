@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Annie | Trần Thái Ngân Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <style>
+    :root {
+      --bg: #070a14;
+      --bg-2: #0d1326;
+      --navy: #111a34;
+      --lavender: #b8a8ff;
+      --rose: #f6a8c8;
+      --gold: #e5c27b;
+      --pearl: #f6f4ff;
+      --text: #e8e7f3;
+      --muted: #b8bad2;
+      --glass: rgba(255, 255, 255, 0.08);
+      --border: rgba(255, 255, 255, 0.2);
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --radius: 20px;
+      --container: min(1150px, 92vw);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, sans-serif;
+      background: radial-gradient(circle at 10% 20%, #1a1c3c 0%, var(--bg) 45%),
+        radial-gradient(circle at 80% 0%, #2a1840 0%, transparent 40%),
+        var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.65;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      width: var(--container);
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 96px 0;
+      position: relative;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.8rem, 1.1rem + 2vw, 3rem);
+      margin-bottom: 14px;
+      color: var(--pearl);
+      letter-spacing: .5px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      max-width: 700px;
+      margin-bottom: 32px;
+    }
+
+    .glass {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transition: .3s;
+      border-bottom: 1px solid transparent;
+    }
+
+    .navbar.scrolled {
+      background: rgba(6, 10, 20, .85);
+      backdrop-filter: blur(12px);
+      border-color: rgba(255, 255, 255, .08);
+    }
+
+    .nav-wrap {
+      width: var(--container);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+      gap: 20px;
+    }
+
+    .logo {
+      font-family: "Playfair Display", serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--pearl);
+      letter-spacing: .8px;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-link {
+      color: var(--muted);
+      font-size: .95rem;
+      padding: 8px 10px;
+      border-radius: 10px;
+      transition: .25s;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--pearl);
+      background: rgba(255, 255, 255, .08);
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.4rem;
+      color: var(--pearl);
+      cursor: pointer;
+      background: transparent;
+      border: 0;
+    }
+
+    .particles {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: rgba(255, 255, 255, .65);
+      border-radius: 50%;
+      animation: pulse 4s infinite ease-in-out;
+    }
+
+    #annie {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding-top: 110px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 38px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.2rem, 1.2rem + 3.4vw, 4.4rem);
+      line-height: 1.08;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .typing {
+      font-size: clamp(1rem, .8rem + 1vw, 1.45rem);
+      color: var(--lavender);
+      min-height: 2.4rem;
+      margin: 8px 0 16px;
+      font-weight: 600;
+    }
+
+    .hero-sub {
+      color: var(--muted);
+      margin-bottom: 26px;
+      max-width: 580px;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--pearl);
+      font-weight: 500;
+      transition: .28s;
+      background: rgba(255, 255, 255, .04);
+      cursor: pointer;
+    }
+
+    .btn.primary {
+      background: linear-gradient(120deg, rgba(246, 168, 200, .25), rgba(184, 168, 255, .25));
+      border-color: rgba(255, 255, 255, .28);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn.primary::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .2), transparent);
+      transform: translateX(-120%);
+      animation: shine 4.5s infinite;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, .45);
+    }
+
+    .hero-avatar-wrap {
+      position: relative;
+      perspective: 1200px;
+      transition: transform .2s;
+    }
+
+    .hero-avatar {
+      width: min(470px, 88vw);
+      margin-inline: auto;
+      border-radius: 26px;
+      border: 1px solid rgba(255, 255, 255, .35);
+      overflow: hidden;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, .45), 0 0 30px rgba(184, 168, 255, .18);
+      animation: float 6s ease-in-out infinite;
+      transform-style: preserve-3d;
+    }
+
+    .hero-avatar img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+    }
+
+    .ring {
+      position: absolute;
+      inset: -14px;
+      border: 1px dashed rgba(229, 194, 123, .45);
+      border-radius: 30px;
+      animation: rotateRing 24s linear infinite;
+      pointer-events: none;
+    }
+
+    .blob {
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      filter: blur(65px);
+      opacity: .4;
+      z-index: -1;
+    }
+
+    .blob.one {
+      background: #9a7ff9;
+      top: 8%;
+      left: -60px;
+    }
+
+    .blob.two {
+      background: #ff8bb6;
+      bottom: 10%;
+      right: -80px;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .intro-img {
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .2);
+      transform: translateZ(0);
+      will-change: transform;
+      transition: transform .15s linear;
+    }
+
+    .intro-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: 430px;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .badge {
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .16);
+      font-size: .9rem;
+      color: #f8efff;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      padding: 22px;
+      transition: .3s;
+      transform-style: preserve-3d;
+      min-height: 190px;
+    }
+
+    .card:hover {
+      transform: translateY(-8px) rotateX(4deg) rotateY(-4deg);
+      border-color: rgba(255, 255, 255, .3);
+    }
+
+    .card .icon {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      color: #fff;
+      background: linear-gradient(135deg, rgba(184, 168, 255, .35), rgba(246, 168, 200, .35));
+      box-shadow: 0 0 20px rgba(184, 168, 255, .35);
+      animation: glow 3s ease-in-out infinite;
+    }
+
+    .card h3 {
+      font-family: "Playfair Display", serif;
+      margin-bottom: 8px;
+      font-size: 1.25rem;
+      color: var(--pearl);
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: .96rem;
+    }
+
+    .hobby-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .hobby-card {
+      overflow: hidden;
+      position: relative;
+      min-height: 280px;
+    }
+
+    .hobby-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: .5s;
+    }
+
+    .hobby-card .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 30%, rgba(4, 6, 13, .85));
+      display: flex;
+      align-items: flex-end;
+      padding: 18px;
+    }
+
+    .hobby-card h4 {
+      font-size: 1.05rem;
+    }
+
+    .hobby-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .timeline {
+      position: relative;
+      margin-top: 10px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--lavender), var(--rose), var(--gold));
+      opacity: .6;
+      transform: translateX(-50%);
+    }
+
+    .timeline-item {
+      width: calc(50% - 30px);
+      padding: 20px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      top: 24px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 18px rgba(229, 194, 123, .7);
+    }
+
+    .timeline-item.left {
+      margin-right: auto;
+    }
+
+    .timeline-item.left::before {
+      right: -38px;
+    }
+
+    .timeline-item.right {
+      margin-left: auto;
+    }
+
+    .timeline-item.right::before {
+      left: -38px;
+    }
+
+    .timeline-item h4 {
+      font-family: "Playfair Display", serif;
+      margin-bottom: 8px;
+    }
+
+    #podcast::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(6, 9, 18, .78), rgba(6, 9, 18, .88)), url('HinhAnh/anh3.jpg') center/cover no-repeat;
+      z-index: -1;
+      filter: blur(2px);
+    }
+
+    .podcast-card {
+      padding: 28px;
+    }
+
+    .podcast-main {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 22px;
+      align-items: center;
+    }
+
+    .audio-ui {
+      padding: 22px;
+      border-radius: 16px;
+      background: rgba(0, 0, 0, .28);
+      border: 1px solid rgba(255, 255, 255, .16);
+    }
+
+    .audio-controls {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .play-btn {
+      width: 52px;
+      height: 52px;
+      border: none;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--rose), var(--lavender));
+      color: #10121d;
+      font-size: 1rem;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 10px 22px rgba(246, 168, 200, .3);
+    }
+
+    .wave {
+      display: flex;
+      gap: 5px;
+      align-items: flex-end;
+      height: 42px;
+    }
+
+    .bar {
+      width: 5px;
+      background: linear-gradient(to top, var(--lavender), var(--rose));
+      border-radius: 8px;
+      animation: wave 1.2s infinite ease-in-out;
+      animation-play-state: paused;
+      opacity: .65;
+    }
+
+    .bar:nth-child(2) {
+      animation-delay: .1s;
+    }
+
+    .bar:nth-child(3) {
+      animation-delay: .2s;
+    }
+
+    .bar:nth-child(4) {
+      animation-delay: .3s;
+    }
+
+    .bar:nth-child(5) {
+      animation-delay: .15s;
+    }
+
+    .bar:nth-child(6) {
+      animation-delay: .25s;
+    }
+
+    .progress-wrap {
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .14);
+      overflow: hidden;
+      margin-top: 8px;
+    }
+
+    .progress {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--gold), var(--rose));
+      transition: width .1s linear;
+    }
+
+    .episode-list li {
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(255, 255, 255, .1);
+      color: #ece8fa;
+      font-size: .95rem;
+    }
+
+    .masonry {
+      columns: 3 240px;
+      column-gap: 14px;
+    }
+
+    .m-item {
+      break-inside: avoid;
+      margin-bottom: 14px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .18);
+      position: relative;
+    }
+
+    .m-item img {
+      width: 100%;
+      transition: .45s;
+    }
+
+    .m-cap {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      padding: 14px;
+      background: linear-gradient(180deg, transparent 45%, rgba(6, 9, 18, .88));
+      opacity: 0;
+      transition: .35s;
+      color: #fff;
+      font-weight: 500;
+    }
+
+    .m-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .m-item:hover .m-cap {
+      opacity: 1;
+    }
+
+    .quote-box {
+      text-align: center;
+      padding: 40px 24px;
+      min-height: 210px;
+      display: grid;
+      place-items: center;
+    }
+
+    .quote-text {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.25rem, 1rem + 1.4vw, 2rem);
+      max-width: 830px;
+      animation: fadeUp .8s ease;
+      color: #fff8fd;
+      transition: opacity .25s;
+    }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr .8fr;
+      gap: 18px;
+    }
+
+    .contact-form {
+      padding: 22px;
+    }
+
+    .field {
+      margin-bottom: 14px;
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid rgba(255, 255, 255, .16);
+      border-radius: 12px;
+      color: #fff;
+      padding: 12px 14px;
+      font: inherit;
+    }
+
+    .field textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .social {
+      padding: 22px;
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+
+    .social a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(255, 255, 255, .12);
+      color: #f0eefe;
+      transition: .25s;
+    }
+
+    .social a:hover {
+      transform: translateX(3px);
+      border-color: rgba(255, 255, 255, .28);
+    }
+
+    footer {
+      padding: 28px 0 36px;
+      text-align: center;
+      color: #cbc4e6;
+      font-size: .95rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .75s ease, transform .75s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .to-top {
+      position: fixed;
+      right: 22px;
+      bottom: 20px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, .25);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      background: rgba(6, 10, 20, .72);
+      backdrop-filter: blur(10px);
+      opacity: 0;
+      visibility: hidden;
+      transition: .28s;
+      z-index: 999;
+    }
+
+    .to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+
+    @keyframes glow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 12px rgba(184, 168, 255, .35);
+      }
+
+      50% {
+        box-shadow: 0 0 26px rgba(246, 168, 200, .4);
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: .2;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: .85;
+        transform: scale(1.8);
+      }
+    }
+
+    @keyframes rotateRing {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes wave {
+
+      0%,
+      100% {
+        height: 9px;
+      }
+
+      50% {
+        height: 34px;
+      }
+    }
+
+    @keyframes shine {
+      to {
+        transform: translateX(120%);
+      }
+    }
+
+    @media (max-width: 1000px) {
+
+      .hero,
+      .intro-grid,
+      .podcast-main,
+      .contact-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hobby-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .timeline::before {
+        left: 18px;
+      }
+
+      .timeline-item {
+        width: calc(100% - 44px);
+        margin-left: 44px !important;
+      }
+
+      .timeline-item::before {
+        left: -33px !important;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-menu {
+        position: fixed;
+        top: 72px;
+        right: 4vw;
+        width: min(320px, 92vw);
+        padding: 14px;
+        border-radius: 14px;
+        background: rgba(8, 13, 24, .95);
+        border: 1px solid rgba(255, 255, 255, .12);
+        display: none;
+        flex-direction: column;
+      }
+
+      .nav-menu.open {
+        display: flex;
+      }
+
+      .grid-3,
+      .hobby-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-avatar {
+        width: min(420px, 94vw);
+      }
+
+      section {
+        padding: 82px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="particles" id="particles"></div>
+  <div class="blob one"></div>
+  <div class="blob two"></div>
+
+  <header class="navbar" id="navbar">
+    <div class="nav-wrap">
+      <a class="logo" href="#annie">Annie<span>.</span></a>
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li><a class="nav-link" href="#annie">Annie</a></li>
+          <li><a class="nav-link" href="#gioi-thieu">Giới thiệu</a></li>
+          <li><a class="nav-link" href="#tinh-cach">Tính cách</a></li>
+          <li><a class="nav-link" href="#so-thich">Sở thích</a></li>
+          <li><a class="nav-link" href="#hanh-trinh">Hành trình</a></li>
+          <li><a class="nav-link" href="#podcast">Podcast</a></li>
+          <li><a class="nav-link" href="#khoanh-khac">Khoảnh khắc</a></li>
+          <li><a class="nav-link" href="#quotes">Quotes</a></li>
+          <!-- <li><a class="nav-link" href="#lien-he">Liên hệ</a></li> -->
+        </ul>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </header>
+
+  <section id="annie">
+    <div class="container hero">
+      <div class="hero-text reveal">
+        <h1>Hi, I'm <span>Annie</span></h1>
+        <p class="typing" id="typingText"></p>
+        <p class="hero-sub">Một cô gái dịu dàng, thông minh và mạnh mẽ theo cách rất riêng.</p>
+        <div class="hero-cta">
+          <a href="#gioi-thieu" class="btn primary">Khám phá câu chuyện</a>
+          <a href="#podcast" class="btn">Nghe Podcast</a>
+        </div>
+      </div>
+      <div class="hero-avatar-wrap reveal" id="tiltCard">
+        <div class="ring"></div>
+        <figure class="hero-avatar glass">
+          <img id="heroAvatar" src="HinhAnh/avt.png" alt="Annie avatar" />
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="gioi-thieu">
+    <div class="container intro-grid">
+      <figure class="intro-img glass reveal" id="introParallax">
+        <img id="introImage" src="HinhAnh/1.png" alt="Annie intro" />
+      </figure>
+      <div class="reveal">
+        <h2 class="section-title">Trần Thái Ngân - Annie</h2>
+        <p class="section-subtitle">
+          Trần Thái Ngân, hay Annie, là một cô gái mang vẻ đẹp dịu dàng nhưng không hề yếu đuối. Ở cô có sự thông minh,
+          tinh tế và một nguồn năng lượng rất riêng - nhẹ nhàng, sâu sắc nhưng đầy bản lĩnh. Annie yêu thích sự tự do,
+          thích nấu ăn, yêu những khoảnh khắc bình yên và luôn biết cách khiến những điều nhỏ bé trở nên ấm áp hơn.
+          <br><br>
+          Cô không chỉ xinh đẹp ở vẻ ngoài, mà còn đẹp ở cách cô lắng nghe, cảm nhận và đối xử tử tế với thế giới xung
+          quanh. Annie là kiểu người có thể mỉm cười thật rạng rỡ, nhưng bên trong lại là một tâm hồn nhiều suy nghĩ,
+          nhiều cảm xúc và rất đáng trân trọng.
+        </p>
+        <div class="badges">
+          <span class="badge">Dịu dàng</span>
+          <span class="badge">Tinh tế</span>
+          <span class="badge">Kiên cường</span>
+          <span class="badge">Yêu tự do</span>
+          <span class="badge">Biết yêu thương bản thân</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tinh-cach">
+    <div class="container">
+      <h2 class="section-title reveal">Tính Cách</h2>
+      <p class="section-subtitle reveal">Sự mềm mại và bản lĩnh cùng hiện diện trong một tâm hồn sâu sắc.</p>
+      <div class="grid-3">
+        <article class="card glass reveal">
+          <div class="icon"><i class="fa-solid fa-feather-pointed"></i></div>
+          <h3>Dịu dàng</h3>
+          <p>Không ồn ào, không phô trương, Annie mang đến cảm giác dễ chịu bằng sự tinh tế và chân thành.</p>
+        </article>
+        <article class="card glass reveal">
+          <div class="icon"><i class="fa-solid fa-shield-heart"></i></div>
+          <h3>Mạnh mẽ</h3>
+          <p>Cô có thể yếu lòng, nhưng chưa bao giờ cho phép bản thân gục ngã quá lâu.</p>
+        </article>
+        <article class="card glass reveal">
+          <div class="icon"><i class="fa-solid fa-dove"></i></div>
+          <h3>Tự do</h3>
+          <p>Annie yêu cảm giác được sống đúng với mình, được đi, được trải nghiệm và được thở trong thế giới của riêng
+            cô.</p>
+        </article>
+        <article class="card glass reveal">
+          <div class="icon"><i class="fa-solid fa-book-open-reader"></i></div>
+          <h3>Sâu sắc</h3>
+          <p>Ẩn sau nụ cười là một tâm hồn biết suy nghĩ, biết cảm nhận và biết trân trọng những điều thật lòng.</p>
+        </article>
+        <article class="card glass reveal">
+          <div class="icon"><i class="fa-solid fa-sun"></i></div>
+          <h3>Tích cực</h3>
+          <p>Dù trải qua nhiều điều không dễ dàng, cô vẫn chọn nhìn cuộc sống bằng ánh mắt dịu dàng.</p>
+        </article>
+        <article class="card glass reveal">
+          <div class="icon"><i class="fa-solid fa-gem"></i></div>
+          <h3>Tinh tế</h3>
+          <p>Từ cách nói chuyện, cách quan tâm đến cách yêu thương, Annie luôn có một sự mềm mại rất riêng.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="so-thich">
+    <div class="container">
+      <h2 class="section-title reveal">Sở Thích</h2>
+      <p class="section-subtitle reveal">Annie thích nấu ăn, vì với cô bếp không chỉ là nơi tạo ra món ăn mà còn là nơi
+        gửi gắm sự quan tâm. Cô thích những chuyến đi, thiên nhiên, biển, rừng, thác nước và những buổi chiều yên tĩnh.
+        Cô yêu âm nhạc, yêu những điều nhỏ bé, yêu cảm giác được tự do và được là chính mình.</p>
+      <div class="hobby-grid">
+        <article class="hobby-card glass reveal"><img src="HinhAnh/1.png" alt="Nấu ăn">
+          <div class="overlay">
+            <h4>Nấu ăn</h4>
+          </div>
+        </article>
+        <article class="hobby-card glass reveal"><img src="HinhAnh/2.png" alt="Du lịch">
+          <div class="overlay">
+            <h4>Du lịch</h4>
+          </div>
+        </article>
+        <article class="hobby-card glass reveal"><img src="HinhAnh/3.png" alt="Thiên nhiên">
+          <div class="overlay">
+            <h4>Thiên nhiên</h4>
+          </div>
+        </article>
+        <article class="hobby-card glass reveal"><img src="HinhAnh/4.png" alt="Âm nhạc">
+          <div class="overlay">
+            <h4>Âm nhạc & bình yên</h4>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="hanh-trinh">
+    <div class="container">
+      <h2 class="section-title reveal">Hành Trình</h2>
+      <div class="timeline">
+        <article class="timeline-item left glass reveal">
+          <h4>Những ngày dịu dàng</h4>
+          <p>Annie từng là cô gái luôn giữ nụ cười trên môi, dù trong lòng có rất nhiều điều không dễ nói.</p>
+        </article>
+        <article class="timeline-item right glass reveal">
+          <h4>Những tổn thương</h4>
+          <p>Có những chuyện đã khiến cô im lặng hơn, cẩn trọng hơn và học cách giấu đi cảm xúc của mình.</p>
+        </article>
+        <article class="timeline-item left glass reveal">
+          <h4>Học cách mạnh mẽ</h4>
+          <p>Sau những lần yếu lòng, cô dần hiểu rằng mạnh mẽ không phải là không đau, mà là vẫn bước tiếp dù trái tim
+            từng vụn vỡ.</p>
+        </article>
+        <article class="timeline-item right glass reveal">
+          <h4>Tìm lại chính mình</h4>
+          <p>Annie chọn yêu bản thân, chọn tự do, chọn bình yên và chọn trở thành phiên bản rực rỡ hơn của chính mình.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="podcast">
+    <div class="container podcast-card glass reveal">
+      <h2 class="section-title">Podcast của Annie</h2>
+      <p class="section-subtitle">Nơi những cảm xúc được nói ra bằng sự dịu dàng.</p>
+      <div class="podcast-main">
+        <div>
+          <p class="section-subtitle" style="margin-bottom:18px; color:#e6e1f7;">
+            Annie là một người con gái mạnh mẽ nhưng cũng rất mỏng manh. Cô từng chịu nhiều tổn thương trong tình yêu,
+            từng im lặng ôm lấy những nỗi buồn không thể gọi tên. Có những ngày cô vẫn mỉm cười trước người khác, nhưng
+            khi chỉ còn một mình, cô lại phải tự học cách vỗ về trái tim mình.
+            <br><br>
+            Nhưng Annie không để những tổn thương ấy làm mình trở nên lạnh lùng. Cô chọn trưởng thành, chọn tha thứ cho
+            chính mình, chọn yêu thương bản thân nhiều hơn và chọn bước tiếp với một trái tim vẫn còn biết dịu dàng.
+            <!-- <br><br>
+            Podcast của Annie là nơi cô kể về những ngày yếu lòng, những bài học sau tan vỡ, những cuộc tình không trọn
+            vẹn, những khoảnh khắc cô học cách buông bỏ, chữa lành và tìm lại ánh sáng bên trong chính mình. -->
+          </p>
+
+          <div class="audio-ui">
+            <div class="audio-controls">
+              <button class="play-btn" id="playBtn"><i class="fa-solid fa-play"></i></button>
+              <div>
+                <strong style="display:block; color:#fff;">After the Storm, Still Gentle</strong>
+                <small style="color:#cbc4e6;">Annie Podcast Session</small>
+              </div>
+            </div>
+            <div class="wave" id="wave">
+              <span class="bar" style="height:12px"></span><span class="bar" style="height:22px"></span><span
+                class="bar" style="height:16px"></span><span class="bar" style="height:26px"></span><span class="bar"
+                style="height:14px"></span><span class="bar" style="height:20px"></span>
+            </div>
+            <div class="progress-wrap">
+              <div class="progress" id="progressBar"></div>
+            </div>
+          </div>
+        </div>
+        <ul class="episode-list">
+          <li>1. Sau những tổn thương, em vẫn dịu dàng</li>
+          <li>2. Mạnh mẽ không có nghĩa là không biết đau</li>
+          <li>3. Học cách yêu bản thân sau một cuộc tình buồn</li>
+          <li>4. Tự do là khi em không còn sợ cô đơn</li>
+          <li>5. Có những ngày em chỉ muốn được bình yên</li>
+          <li>6. Tạm biệt những điều từng làm em tổn thương</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="khoanh-khac">
+    <div class="container">
+      <h2 class="section-title reveal">Khoảnh Khắc</h2>
+      <p class="section-subtitle reveal">Masonry gallery mang những chuyển động nhẹ, cảm xúc và tinh tế.</p>
+      <div class="masonry reveal" id="gallery"></div>
+    </div>
+  </section>
+
+  <section id="quotes">
+    <div class="container">
+      <h2 class="section-title reveal">Quotes</h2>
+      <div class="quote-box glass reveal">
+        <p class="quote-text" id="quoteText">Dịu dàng không phải là yếu đuối.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section id="lien-he">
+    <div class="container">
+      <h2 class="section-title reveal">Liên Hệ</h2>
+      <div class="contact-wrap">
+        <form class="contact-form glass reveal">
+          <div class="field"><input type="text" placeholder="Họ tên" required></div>
+          <div class="field"><input type="email" placeholder="Email" required></div>
+          <div class="field"><textarea placeholder="Lời nhắn" required></textarea></div>
+          <button class="btn primary" type="submit">Gửi lời nhắn</button>
+        </form>
+        <aside class="social glass reveal">
+          <a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
+          <a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+          <a href="#"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+          <a href="#"><i class="fa-solid fa-envelope"></i> Email</a>
+        </aside>
+      </div>
+    </div>
+  </section> -->
+
+  <footer>
+    <p>Made with love for Annie.</p>
+    <p>Some souls are soft, yet impossible to break.</p>
+  </footer>
+
+  <a href="#annie" class="to-top" id="toTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></a>
+
+  <script>
+    // =====================
+    // Easy image config
+    // =====================
+    const IMG = {
+      avatar: "HinhAnh/avt.png", // co the doi thanh HinhAnh/avt.p hoac duoi khac
+      intro: "HinhAnh/1.png",
+      podcastBg: "HinhAnh/3.png",
+      gallery: [
+        "HinhAnh/avt.png",
+        "HinhAnh/1.png",
+        "HinhAnh/2.png",
+        "HinhAnh/3.png",
+        "HinhAnh/4.png",
+        "HinhAnh/5.jpg",
+        "HinhAnh/6.jpg"
+      ]
+    };
+
+    document.getElementById("heroAvatar").src = IMG.avatar;
+    document.getElementById("introImage").src = IMG.intro;
+    document.querySelector("#podcast").style.setProperty("--podcast-bg", `url('${IMG.podcastBg}')`);
+
+    const particleHost = document.getElementById("particles");
+    for (let i = 0; i < 55; i++) {
+      const p = document.createElement("span");
+      p.className = "particle";
+      p.style.left = Math.random() * 100 + "%";
+      p.style.top = Math.random() * 100 + "%";
+      p.style.animationDuration = (2.5 + Math.random() * 5) + "s";
+      p.style.animationDelay = (Math.random() * 4) + "s";
+      p.style.opacity = (0.2 + Math.random() * 0.6).toFixed(2);
+      particleHost.appendChild(p);
+    }
+
+    const typingLines = [
+      "Beautiful. Gentle. Brave.",
+      "A soft heart with a fearless soul.",
+      "She chooses peace, freedom and self-love."
+    ];
+    const typingText = document.getElementById("typingText");
+    let lineIdx = 0, charIdx = 0, deleting = false;
+    function typingLoop() {
+      const line = typingLines[lineIdx];
+      typingText.textContent = deleting ? line.slice(0, charIdx--) : line.slice(0, charIdx++);
+      let speed = deleting ? 35 : 70;
+      if (!deleting && charIdx > line.length + 1) { deleting = true; speed = 1200; }
+      if (deleting && charIdx < 0) {
+        deleting = false;
+        lineIdx = (lineIdx + 1) % typingLines.length;
+        speed = 250;
+      }
+      setTimeout(typingLoop, speed);
+    }
+    typingLoop();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("show");
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+    const navbar = document.getElementById("navbar");
+    const navLinks = [...document.querySelectorAll(".nav-link")];
+    const navMenu = document.getElementById("navMenu");
+    const menuToggle = document.getElementById("menuToggle");
+    menuToggle.addEventListener("click", () => navMenu.classList.toggle("open"));
+    navLinks.forEach(link => {
+      link.addEventListener("click", () => navMenu.classList.remove("open"));
+    });
+
+    const sections = navLinks.map(a => document.querySelector(a.getAttribute("href")));
+    function onScroll() {
+      const y = window.scrollY + 120;
+      navbar.classList.toggle("scrolled", window.scrollY > 20);
+      sections.forEach((sec, idx) => {
+        if (!sec) return;
+        const top = sec.offsetTop;
+        const bottom = top + sec.offsetHeight;
+        if (y >= top && y < bottom) {
+          navLinks.forEach(l => l.classList.remove("active"));
+          navLinks[idx].classList.add("active");
+        }
+      });
+      document.getElementById("toTop").classList.toggle("show", window.scrollY > 500);
+
+      const intro = document.getElementById("introParallax");
+      if (intro) {
+        const rect = intro.getBoundingClientRect();
+        const shift = (window.innerHeight - rect.top) * 0.018;
+        intro.style.transform = `translateY(${Math.max(-10, Math.min(18, shift))}px)`;
+      }
+    }
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+
+    const tiltCard = document.getElementById("tiltCard");
+    tiltCard.addEventListener("mousemove", (e) => {
+      const r = tiltCard.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width;
+      const y = (e.clientY - r.top) / r.height;
+      const rx = (0.5 - y) * 8;
+      const ry = (x - 0.5) * 8;
+      tiltCard.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg)`;
+    });
+    tiltCard.addEventListener("mouseleave", () => tiltCard.style.transform = "rotateX(0) rotateY(0)");
+
+    const playBtn = document.getElementById("playBtn");
+    const progress = document.getElementById("progressBar");
+    const bars = [...document.querySelectorAll(".bar")];
+    let playing = false;
+    let pct = 0;
+    let timer = null;
+    function setWaveState(isPlaying) {
+      bars.forEach(b => {
+        b.style.animationPlayState = isPlaying ? "running" : "paused";
+        b.style.opacity = isPlaying ? "1" : ".6";
+      });
+    }
+    setWaveState(false);
+    playBtn.addEventListener("click", () => {
+      playing = !playing;
+      playBtn.innerHTML = playing ? '<i class="fa-solid fa-pause"></i>' : '<i class="fa-solid fa-play"></i>';
+      setWaveState(playing);
+      if (playing) {
+        timer = setInterval(() => {
+          pct += 0.35;
+          if (pct >= 100) pct = 0;
+          progress.style.width = pct + "%";
+        }, 90);
+      } else {
+        clearInterval(timer);
+      }
+    });
+
+    const captions = [
+      "A gentle smile",
+      "Freedom in her eyes",
+      "Nature heals her soul",
+      "Soft but unbreakable",
+      "The ocean knows her silence"
+    ];
+    const gallery = document.getElementById("gallery");
+    IMG.gallery.forEach((src, i) => {
+      const item = document.createElement("figure");
+      item.className = "m-item";
+      item.innerHTML = `<img src="${src}" alt="Moment ${i + 1}"><figcaption class="m-cap">${captions[i % captions.length]}</figcaption>`;
+      gallery.appendChild(item);
+    });
+
+    const quotes = [
+      "Dịu dàng không phải là yếu đuối.",
+      "Có những vết thương khiến một cô gái trở nên đẹp hơn theo cách rất riêng.",
+      "Tự do là khi trái tim bình yên.",
+      "Sau tất cả, cô ấy vẫn chọn sống tử tế.",
+      "She is soft, but never easy to break.",
+      "Behind her smile is a story only her heart knows."
+    ];
+    const quoteText = document.getElementById("quoteText");
+    let qIdx = 0;
+    setInterval(() => {
+      qIdx = (qIdx + 1) % quotes.length;
+      quoteText.style.opacity = 0;
+      setTimeout(() => {
+        quoteText.textContent = quotes[qIdx];
+        quoteText.style.opacity = 1;
+        quoteText.style.animation = "none";
+        quoteText.offsetHeight;
+        quoteText.style.animation = "fadeUp .8s ease";
+      }, 250);
+    }, 4200);
+
+    document.querySelector(".contact-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("Cảm ơn bạn! Lời nhắn đã sẵn sàng để gửi.");
+    });
+  </script>
+</body>
+
+</html>
